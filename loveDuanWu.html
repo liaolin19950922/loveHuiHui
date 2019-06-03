@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title>见面倒计时</title>
+    <style>
+    	p{
+    		color: #FF9999;
+    		/*padding-top:10px;*/
+    		font-weight: bold;
+    	}
+    	span{
+    		font-size: 24px;
+    		color: #FF6666;
+    		padding-left: 10px;
+    		padding-right: 4px;
+    	}
+    </style>
+</head>
+<body style="background-image: url(https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1555592041651&di=d5da1a86393433686784385c51c1b2e4&imgtype=0&src=http%3A%2F%2Fb-ssl.duitang.com%2Fuploads%2Fitem%2F201507%2F29%2F20150729134131_fJKW5.jpeg);background-size: cover;">
+	<div style="text-align: center;margin-top: 12%;">
+		<h3 style="color: #FF9999;">端午见面倒计时</h3>
+		<p><span id="day"></span>天</p>
+		<p><span id="hour"></span>时<span id="min"></span>分<span id="secon"></span>秒</p>
+	</div>
+	
+	<script type="text/javascript" charset="utf-8">
+      	var endDate=new Date('2019-06-07 17:00:00');
+      	var nowDate,onlyDate
+      	countDate();
+      	function countDate(){
+	      	nowDate=new Date();
+	      	onlyDate=endDate-nowDate;
+	      	document.getElementById('secon').innerHTML=parseInt(onlyDate/1000%60)<10?'0'+parseInt(onlyDate/1000%60):parseInt(onlyDate/1000%60);
+	      	document.getElementById('min').innerHTML=parseInt(onlyDate/1000/60%60)<10?'0'+parseInt(onlyDate/1000/60%60):parseInt(onlyDate/1000/60%60);
+	      	document.getElementById('hour').innerHTML=parseInt(onlyDate/1000/60/60%24)<10?'0'+parseInt(onlyDate/1000/60/60%24):parseInt(onlyDate/1000/60/60%24);
+	      	document.getElementById('day').innerHTML=parseInt(onlyDate/1000/60/60/24);
+      	}
+      	
+      	setInterval(countDate,1000);
+    </script>
+</body>
+</html>
